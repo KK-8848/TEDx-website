@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Vanguard';
+    src: url('./fonts/Vanguard-thin.otf') format('opentype');
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'Vanguard';
+    src: url('./fonts/Vanguard-regular.otf') format('opentype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Vanguard';
+    src: url('./fonts/Vanguard-medium.otf') format('opentype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Vanguard';
+    src: url('./fonts/Vanguard-demibold.otf') format('opentype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Vanguard';
+    src: url('./fonts/Vanguard-bold.otf') format('opentype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Vanguard';
+    src: url('./fonts/Vanguard-extrabold.otf') format('opentype');
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'Vanguard';
+    src: url('./fonts/Vanguard-heavy.otf') format('opentype');
+    font-weight: 900;
+}
+  
+@font-face {
+    font-family: 'Microgramma';
+    src: url('./fonts/Microgramma.otf') format('opentype');
+}
+  
+@font-face {
+    font-family: 'AvantGarde';
+    src: url('./fonts/AvantGarde.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Helvetica Compressed';
+    src: url('./fonts/Helvetica-Compressed.otf') format('truetype');
+}
