@@ -1,148 +1,79 @@
-import React from "react";
+import React from "react"
 
-import line1 from "/assets/line2.svg";
-import line2 from "/assets/line2.svg";
-import line3 from "/assets/line2.svg";
-import PropTypes from "prop-types";
+import line1 from "/assets/line2.svg"
 
-import "../styles/ScrollingText.css";
 
-export const ScrollingText = ({ className, no, direction = "up" }) => {
+
+
+import "../styles/ScrollingText.css"
+
+export const ScrollingText = ({ className, dark = false, direction = "left" }) => {
   return (
-    <div
-      className={`relative w-[1024px] h-[35px] overflow-hidden ${className}`}
-    >
-      <p
-        className={`absolute text-[29px] ${
-          no ? "text-[#fafafa]" : "text-[#161616]"
-        } font-avantgarde leading-[35px] whitespace-nowrap  ${
-          direction === "up" ? "animate-scroll-left" : "animate-scroll-left"
-        }`}
-      >
-        TEDx CET - TEDx CET - TEDx CET - TEDx CET - TEDx CET - TEDx CET - TEDx
-        CET - TEDx CET - TEDx CET - TEDx CET - TEDx CET - TEDx CET - TEDx CET -
-        TEDx CET - TEDx CET - TEDx CET -
+    <div className={`scrolling-text-container ${className}`}>
+      <div className={`scrolling-text ${dark ? "text-[#fafafa]" : "text-[#161616]"} ${direction}`}>
+        {Array(20).fill("TEDx CET - ").join(" ")}
+      </div>
+    </div>
+  )
+}
+export const About = () => {
+  
+  const stats = [
+    { number: "5", text: "Events" },
+    { number: "50", text: "Speakers" },
+    { number: "100", text: "Active Members" },
+    { number: "50", text: "Community Members" },
+  ]
+
+  return (
+    <div className="flex flex-col lg:flex-row w-full min-h-screen border-[#161616] border-2">
+     <div className="flex flex-col lg:flex-row items-center  lg:items-start justify-center w-full h-full lg:h-full">
+  {/* Left Section */}
+  <div className="w-full lg:w-1/2  bg-[#161616] flex flex-col gap-7 overflow-hidden items-start pl-8 sm:pl-16 lg:pl-28 pb-10 sm:pb-20 min-h-screen h-full">
+    <div className="flex flex-col gap-4 lg:mt-4">
+      <div className="mb-4 text-5xl sm:text-7xl lg:text-9xl text-[#fafafa] font-vanguard leading-tight lg:leading-[148px] font-extrabold">
+        ABOUT
+      </div>
+      <p className="w-full max-w-[99%] md:max-w-[510px] text-2xl sm:text-3xl text-[#fafafa] font-avantgarde leading-[1.8rem] sm:leading-[2.2rem] tracking-wide">
+      TEDxCUSAT is a dynamic platform where the brightest minds of Cochin University of Science And Technology come together to share ideas that have the power to inspire meaningful change. This year's event, centered around the theme "Kaleidoscope: Alchemy of Voices," offers a blend of live talks and curated videos designed to spark thought-provoking conversations. TEDxCUSAT goes beyond the traditional format of talks; it’s about creating a space where ideas can be transformed into actions that lead to real-world impact. Our goal is to make these ideas accessible and to inspire our community to turn them into catalysts for positive change.
       </p>
     </div>
-  );
-};
+  </div>
 
-ScrollingText.propTypes = {
-  className: PropTypes.string,
-  no: PropTypes.bool,
-  direction: PropTypes.oneOf(["up", "down"]),
-};
-
-export const About = () => {
-  return (
-    <div className="relative w-[1440px] h-[1024px]">
-      <div className="absolute left-0 top-[-7px] w-[765px] h-[1031px]">
-        <div className="relative h-[1031px] overflow-hidden">
-          <div className="absolute left-0 top-[7px] w-[720px] h-[1024px] bg-[#161616]" />
-          <div className="absolute left-[102px] top-[25px] text-[123px] text-[#fafafa] font-vanguard leading-[148px] font-extrabold font-weight-700">
-            ABOUT
-          </div>
-          <ScrollingText
-            className="absolute left-[179px] top-[494px] transform -rotate-90"
-            property1="frame-2"
-            no={true}
-            direction="up"
-          />
-
-          <p className="absolute left-[102px] top-[223px] w-[510px] text-[29px] text-[#fafafa] font-avantgarde leading-[35px] tracking-[0.87px]">
-            TEDxCUSAT is a dynamic platform where the brightest minds of Cochin
-            University of Science And Technology come together to share ideas
-            that have the power to inspire meaningful change. This year's event,
-            centered around the theme "Kaleidoscope: Alchemy of Voices," offers
-            a blend of live talks and curated videos designed to spark
-            thought-provoking conversations. TEDxCUSAT goes beyond the
-            traditional format of talks; it's about creating a space where ideas
-            can be transformed into actions that lead to real-world impact. Our
-            goal is to make these ideas accessible and to inspire our community
-            to turn them into catalysts for positive change.
-          </p>
-          <ScrollingText
-            className="absolute left-[230px] top-[468px] transform rotate-90"
-            property1="frame-2"
-            no={false}
-            direction="down"
-          />
-        </div>
-      </div>
-
-      <div className="absolute left-[829px] top-[55px] w-[449px] h-[914px]">
-        <div className="absolute left-[174px] top-[-38px] w-[142px] h-[207px]">
-          <div className="absolute left-[23px] top-0 w-[111px] h-[148px]">
-            <div className="absolute left-0 top-0 text-9xl font-vanguard font-extrabold  leading-[148px] bg-gradient-to-b from-[#E31C25] to-[#BB000E] bg-clip-text text-transparent">
-              5
+  {/* Right Section (Stats) */}
+  <div className="w-full lg:w-1/2 flex items-center justify-center p-6 lg:p-12 bg-[#FAFAFA]">
+      <div className="flex flex-col items-center justify-center w-full max-w-[600px] gap-4 lg:gap-6">
+        {stats.map((stat, index) => (
+          <React.Fragment key={index}>
+            <div className="flex flex-col items-center justify-center">
+              <div className="flex items-end justify-center">
+                <span className="text-[60px] sm:text-[80px] lg:text-[110px] font-vanguard font-extrabold leading-none bg-gradient-to-b from-[#E31C25] to-[#BB000E] bg-clip-text text-transparent">
+                  {stat.number}
+                </span>
+                <span className="text-[30px] sm:text-[40px] lg:text-[80px] text-[#161616] mb-4 lg:mb-5 font-extrabold font-['Helvetica Compressed'] leading-none pl-1">
+                  +
+                </span>
+              </div>
+              <span className="text-[28px] sm:text-[40px] lg:text-[60px] text-[#161616] font-vanguard font-medium text-center whitespace-nowrap mt-[-10px] lg:mt-[-20px]">
+                {stat.text}
+              </span>
             </div>
-            <div className="absolute left-[59px] top-[33px] text-[80px] text-[#161616] font-extrabold font-Helvetica Compressed text-center">
-              +
-            </div>
-          </div>
-          <div className="absolute left-0 top-[116px] text-[76px] text-[#161616] font-vanguard font-medium text-center whitespace-nowrap">
-            Events
-          </div>
-        </div>
-
-        <div className="absolute left-[142px] top-[210px] w-[198px] h-[207px]">
-          <div className="absolute left-[29px] top-0 w-[163px] h-[148px]">
-            <div className="absolute left-0 top-0 text-9xl font-vanguard font-extrabold leading-[148px] bg-gradient-to-b from-[#E31C25] to-[#BB000E] bg-clip-text text-transparent">
-              50
-            </div>
-            <div className="absolute left-[111px] top-[33px] text-[80px] text-[#161616] font-extrabold font-Helvetica Compressed text-center">
-              +
-            </div>
-          </div>
-          <div className="absolute left-0 top-[116px] text-[76px] text-[#161616] font-vanguard font-medium  text-center whitespace-nowrap">
-            Speakers
-          </div>
-        </div>
-
-        <div className="absolute left-[81px] top-[458px] w-[346px] h-[207px]">
-          <div className="absolute left-[70px] top-0 w-[202px] h-[148px]">
-            <div className="absolute left-0 top-0 text-9xl text-center font-vanguard font-extrabold leading-[148px] bg-gradient-to-b from-[#E31C25] to-[#BB000E] bg-clip-text text-transparent">
-              100
-            </div>
-            <div className="absolute left-[150px] top-[32px] text-[80px] text-[#161616] font-extrabold font-Helvetica Compressed text-center">
-              +
-            </div>
-          </div>
-          <div className="absolute left-0 top-[132px] text-[76px] text-[#161616] font-vanguard font-medium  leading-[75px] text-center whitespace-nowrap">
-            Active Members
-          </div>
-        </div>
-
-        <div className="absolute left-[29px] top-[706px] w-[449px] h-[207px]">
-          <div className="absolute left-[141px] top-0 w-[164px] h-[148px]">
-            <div className="absolute left-0 top-0 text-9xl font-vanguard font-extrabold leading-[148px] bg-gradient-to-b from-[#E31C25] to-[#BB000E] bg-clip-text text-transparent">
-              50
-            </div>
-            <div className="absolute left-[112px] top-[33px] text-[80px] text-[#161616]  font-extrabold font-Helvetica Compressed text-center">
-              +
-            </div>
-          </div>
-          <div className="absolute left-0 top-[132px] text-7xl font-medium text-[#161616] font-vanguard  leading-[75px] text-center whitespace-nowrap">
-            Community Members
-          </div>
-        </div>
-
-        <img
-          className="absolute left-[108px] top-[202px] w-[292px] h-[2px]"
-          alt="Line"
-          src={line1 || "/placeholder.svg"}
-        />
-        <img
-          className="absolute left-[108px] top-[450px] w-[292px] h-[2px]"
-          alt="Line"
-          src={line2 || "/placeholder.svg"}
-        />
-        <img
-          className="absolute left-[108px] top-[704px] w-[292px] h-[2px]"
-          alt="Line"
-          src={line3 || "/placeholder.svg"}
-        />
+            {index < stats.length - 1 && (
+              <div className="w-full max-w-[292px] my-2 lg:my-4">
+                <img src={line1 || "/placeholder.svg"} alt="Divider" className="w-full h-[2px]" />
+              </div>
+            )}
+          </React.Fragment>
+        ))}
       </div>
     </div>
-  );
-};
+
+    </div>
+    </div>
+  )
+}
+
+
+
+
+
